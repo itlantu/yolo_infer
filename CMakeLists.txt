@@ -10,3 +10,6 @@ add_executable(yolo_infer main.cpp)
 find_package(utils MODULE REQUIRED)
 find_package(project_opencv MODULE REQUIRED)
 find_package(project_onnxruntime MODULE REQUIRED)
+
+enable_testing()
+add_subdirectory(test)
