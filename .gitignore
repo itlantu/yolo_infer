@@ -1,0 +1,9 @@
+# Visual Studio
+.vs
+
+# Clion
+.idea
+
+# Build
+build
+cmake-build-*
