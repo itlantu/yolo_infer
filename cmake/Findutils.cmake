@@ -17,3 +17,7 @@ endif()
 function(DEF_LINK_LIBRARY path)
     set(${path} "${${path}}${CMAKE_DEF_LINK_LIBRARY_SUFFIX}" PARENT_SCOPE)
 endfunction()
+
+function(TARGET_LINK_ALL_LIBRARY project)
+    target_link_libraries(${project} ${OpenCV_LIBS} ${ONNXRuntime_LIBS})
+endfunction()
