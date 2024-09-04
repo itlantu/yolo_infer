@@ -43,9 +43,9 @@ infer::Shape::Shape(int n, int c, int h, int w) {
 }
 
 int infer::Shape::ndim() {
-    int res = 4;
-    for(int i = 0; i < 4; i++, res--){
-        if(!this->_dim[0])
+    int res = 0;
+    for(int i = 0; i < 4; i++, res++){
+        if(!this->_dim[3 - i])
             break;
     }
     return res;
