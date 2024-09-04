@@ -2,4 +2,5 @@
 
 int main(){
     sample_test();
+    resize_test();
 }
