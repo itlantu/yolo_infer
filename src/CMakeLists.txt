@@ -1,6 +1,6 @@
 add_library(SRC_LIBS STATIC
-#        "preprocessing.cpp"
-#        "core/tensor.cpp"
+#        "preprocess.cpp"
+        "core/tensor.cpp"
         "core/shape.cpp"
 )
 
