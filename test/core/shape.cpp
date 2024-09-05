@@ -12,15 +12,21 @@ void shape_test(){
 
     cout << "ndim: " << shape1.ndim() << endl;
     if(shape1.ndim() != 4){
-        cout << "test/shape.cpp: ndim error, ndim !=4 = " << shape1.ndim() << endl;
+        cout << "test/shape.cpp: ndim error, ndim != 4 = " << shape1.ndim() << endl;
         throw runtime_error("test/shape.cpp: ndim error");
     }
-
 
     for(int i = 0; i < 4; i++){
         if(shape1[i] != i + 1){
             cout << "test/shape.cpp: value error, i = " << i << endl;
             throw runtime_error("test/shape.cpp: value error");
         }
+    }
+
+    cout << "total: " << shape1.total() << endl;
+    int64_t n = 1 + 2 + 3 + 4;
+    if(shape1.total() != n){
+        cout << "test/shape.cpp: total value error, total != " << n << " = " << shape1.total() << endl;
+        throw runtime_error("test/shape.cpp: total error");
     }
 }
