@@ -5,7 +5,7 @@ using namespace std;
 
 void shape_test(){
     infer::Shape shape1 = {1, 2, 3, 4};
-    infer::Shape shape2 = array<int, 4>({5, 6, 7, 8});
+    infer::Shape shape2 = array<int64_t , 4>({5, 6, 7, 8});
 
     cout << shape1.to_string() << endl;
     cout << shape2.to_string() << endl;
