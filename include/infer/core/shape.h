@@ -20,7 +20,8 @@ namespace infer{
 
         [[nodiscard]] std::string to_string() const;
         constexpr int64_t operator[](int index) const noexcept;
-        int ndim();
+        [[nodiscard]] int ndim() const noexcept;
+        int64_t total() const noexcept;
     };
 }
 
