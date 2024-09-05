@@ -36,14 +36,14 @@ endfunction()
 
 # 传入项目名称, 将src链接到项目
 function(utils_target_link_src project)
-    target_link_libraries(${project} ${SRC_LIBS})
+    target_link_libraries(${project} SRC_LIBS)
 endfunction()
 
-# 传入测试单元名称, 项目名称, 编号, 进行单元测试
-function(utils_test_project test project id)
+# 传入测试项目名称和编号, 进行单元测试
+function(utils_test_project project id)
     message(STATUS "")
     message(STATUS "${id}) ${project} - test: running")
     utils_target_link_src(${project})
-    add_test(${test} ${project})
+    add_test("test_${project}" ${project})
     message(STATUS "${id}) ${project} - test: end")
 endfunction()
