@@ -34,11 +34,11 @@ bool _resize(cv::InputArray _src, cv::Mat& result, cv::Size dsize){
 
 void resize_test(){
     cout << "cv resize test" << endl;
-    cv::Mat image(300, 400, CV_8UC3, cv::Scalar(255, 255, 255));
+    cv::Mat image(300, 400, CV_8UC3, cv::Scalar(117, 134, 1));
     cv::Mat resize_image = cv::Mat::zeros(640, 640, CV_8UC3);
 
     _resize(image, resize_image, cv::Size(640, 640));
-    cv::imshow("original", image);
-    cv::imshow("resize", resize_image);
-    cv::waitKey(2000);
+//    cv::imshow("original", image);
+//    cv::imshow("resize", resize_image);
+//    cv::waitKey(2000);
 }

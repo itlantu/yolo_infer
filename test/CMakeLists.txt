@@ -7,8 +7,12 @@ add_executable(test_cv_project
         "${CMAKE_CURRENT_SOURCE_DIR}/cv/resize.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/cv/main.cpp"
 )
-TARGET_LINK_ALL_LIBRARY(test_cv_project)
 
-message(STATUS "Test 1) cv - test: running")
-add_test(test_cv test_cv_project)
-message(STATUS "Test 1) cv - test: end")
+add_executable(test_core_project
+        "${CMAKE_CURRENT_SOURCE_DIR}/core/shape.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/core/tensor_type.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/core/main.cpp"
+)
+
+TEST_PROJECT(test_cv    test_cv_project     1)
+TEST_PROJECT(test_core  test_core_project   2)
