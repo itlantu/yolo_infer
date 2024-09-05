@@ -10,6 +10,7 @@ add_executable(test_cv_project
 
 add_executable(test_core_project
         "${CMAKE_CURRENT_SOURCE_DIR}/core/shape.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/core/tensor_type.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/core/main.cpp"
 )
 
