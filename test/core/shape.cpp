@@ -1,5 +1,4 @@
 #include "core_test.h"
-#include <exception>
 
 using namespace std;
 
