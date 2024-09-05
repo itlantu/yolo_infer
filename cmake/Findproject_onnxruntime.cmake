@@ -10,7 +10,7 @@ endif()
 set(ONNXRuntime_INCLUDE     "${ONNXRuntime_DIR}/include")
 set(ONNXRuntime_LIBS        "${ONNXRuntime_DIR}/lib/onnxruntime")
 
-DEF_LINK_LIBRARY(ONNXRuntime_LIBS)
+utils_def_link_library(ONNXRuntime_LIBS)
 
 message(STATUS " ")
 message(STATUS "2) ONNXRuntime - dir:       ${ONNXRuntime_DIR}")

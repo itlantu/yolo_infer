@@ -14,5 +14,5 @@ add_executable(test_core_project
         "${CMAKE_CURRENT_SOURCE_DIR}/core/main.cpp"
 )
 
-TEST_PROJECT(test_cv    test_cv_project     1)
-TEST_PROJECT(test_core  test_core_project   2)
+utils_test_project(test_cv    test_cv_project     1)
+utils_test_project(test_core  test_core_project   2)
