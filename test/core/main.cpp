@@ -2,5 +2,6 @@
 
 int main(){
     shape_test();
+    tensor_type_test();
     return 0;
 }
