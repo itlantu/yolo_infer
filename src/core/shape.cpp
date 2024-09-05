@@ -1,4 +1,4 @@
-#include "infer/core/shape.h"
+﻿#include "infer/core/shape.h"
 #include <format>
 
 using namespace std;
@@ -42,11 +42,19 @@ infer::Shape::Shape(int n, int c, int h, int w) {
     this->_dim[3] = w;
 }
 
-int infer::Shape::ndim() {
+int infer::Shape::ndim() const noexcept{
     int res = 0;
     for(int i = 0; i < 4; i++, res++){
         if(!this->_dim[3 - i])
             break;
     }
     return res;
+}
+
+int64_t infer::Shape::total() const noexcept {
+    int64_t result = 0;
+    for(int i = 0, len = this->ndim(); i < len; i++){
+        result += this->_dim[3 - i];
+    }
+    return result;
 }
