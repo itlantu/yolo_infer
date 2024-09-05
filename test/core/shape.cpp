@@ -29,3 +29,8 @@ void shape_test(){
         throw runtime_error("test/shape.cpp: total error");
     }
 }
+
+int main(){
+    shape_test();
+    return 0;
+}

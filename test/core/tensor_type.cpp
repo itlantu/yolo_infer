@@ -13,3 +13,8 @@ void tensor_type_test(){
         throw runtime_error("tensor_type_test: equal error");
     }
 }
+
+int main(){
+    tensor_type_test();
+    return 0;
+}

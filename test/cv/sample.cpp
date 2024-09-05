@@ -8,3 +8,8 @@ void sample_test(){
     std::cout << "cv sample" << std::endl;
     std::cout << random_matrix << std::endl;
 }
+
+int main(){
+    sample_test();
+    return 0;
+}
