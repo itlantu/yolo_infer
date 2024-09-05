@@ -10,7 +10,7 @@ infer::Shape::Shape() {
     this->_dim[3] = 0;
 }
 
-infer::Shape::Shape(const std::array<int32_t, 4> &arr) {
+infer::Shape::Shape(const std::array<int64_t, 4> &arr) {
 //    for(int i = 0; i < 4; i++){
 //        this->_dim[i] = arr[i];
 //    }
@@ -31,7 +31,7 @@ std::string infer::Shape::to_string() const {
     return format("[{}, {}, {}, {}]", this->_dim[0], this->_dim[1], this->_dim[2], this->_dim[3]);
 }
 
-constexpr int32_t infer::Shape::operator[](int index) const noexcept{
+constexpr int64_t infer::Shape::operator[](int index) const noexcept{
     return (index > 3 || index < 0) ? 0 : this->_dim[index];
 }
 
