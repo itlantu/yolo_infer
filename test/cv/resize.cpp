@@ -42,3 +42,8 @@ void resize_test(){
 //    cv::imshow("resize", resize_image);
 //    cv::waitKey(2000);
 }
+
+int main(){
+    resize_test();
+    return 0;
+}

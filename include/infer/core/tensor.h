@@ -38,8 +38,16 @@ namespace infer{
     private:
         std::vector<T> _data;
         infer::Shape _shape;
+        infer::TensorType<T> _dtype;
     public:
+        Tensor() = default;
         Tensor(const Shape& shape);
+        Tensor(const std::vector<T>& data, const Shape& shape);
+
+        bool move_from(std::vector<T>& data, const Shape& shape);
+
+        const infer::TensorType<T>& dtype() const noexcept;
+        const infer::Shape& shape() const noexcept;
     };
 }
 

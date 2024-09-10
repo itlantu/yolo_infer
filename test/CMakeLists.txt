@@ -1,18 +1,14 @@
 project(yolo_infer_test)
 
-message(STATUS " ")
+message(STATUS "")
+message(STATUS "--- test ---")
 
-add_executable(test_cv_project
-        "${CMAKE_CURRENT_SOURCE_DIR}/cv/sample.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/cv/resize.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/cv/main.cpp"
-)
+set(cv_dir      "${CMAKE_CURRENT_SOURCE_DIR}/cv")
+set(core_dir    "${CMAKE_CURRENT_SOURCE_DIR}/core")
 
-add_executable(test_core_project
-        "${CMAKE_CURRENT_SOURCE_DIR}/core/shape.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/core/tensor_type.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/core/main.cpp"
-)
-
-TEST_PROJECT(test_cv    test_cv_project     1)
-TEST_PROJECT(test_core  test_core_project   2)
+utils_add_test_file("${cv_dir}/sample.cpp"          LINK OpenCV)
+utils_add_test_file("${cv_dir}/resize.cpp"          LINK OpenCV)
+#
+utils_add_test_file("${core_dir}/shape.cpp"         LINK SRC)
+utils_add_test_file("${core_dir}/tensor_type.cpp"   LINK SRC)
+utils_add_test_file("${core_dir}/tensor.cpp"        LINK SRC)
