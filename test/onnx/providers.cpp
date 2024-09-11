@@ -1,5 +1,4 @@
-#include <iostream>
-#include <onnxruntime_cxx_api.h>
+#include "onnx_test.h"
 
 using namespace std;
 
