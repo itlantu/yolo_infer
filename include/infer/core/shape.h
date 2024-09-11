@@ -15,7 +15,8 @@ namespace infer{
     public:
         explicit Shape();
         Shape(int n, int c, int h, int w);
-        Shape(const std::array<int64_t, 4>& arr);
+        explicit Shape(const std::array<int64_t, 4>& arr);
+        explicit Shape(const std::vector<int64_t>& vec);
         Shape(const Shape& shape);
 
         [[nodiscard]] std::string to_string() const;
