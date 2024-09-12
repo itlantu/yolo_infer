@@ -15,8 +15,21 @@ int main(){
 
     try{
         infer::ONNXModel model(onnx_path.wstring());
-        cout << model.get_input_node_info().to_string() << endl;
-        cout << model.get_output_node_info().to_string() << endl;
+        const auto& input_info = model.get_input_node_info();
+        const auto& output_info = model.get_output_node_info();
+
+        cout << input_info.to_string() << endl;
+        cout << output_info.to_string() << endl;
+
+        if(input_info.shapes[0] != infer::Shape(vector<int64_t>{1, 28})){
+            cerr << "onnx/info.cpp: input shape error, shape != {1, 28}" << endl;
+            return -3;
+        }
+        if(output_info.shapes[0] != infer::Shape(vector<int64_t>{1, 1})){
+            cerr << "onnx/info.cpp: output shape error, shape != {1, 1}" << endl;
+            return -4;
+        }
+
     }catch(const Ort::Exception& error){
         cerr << error.what() <<  endl;
         return -2;
