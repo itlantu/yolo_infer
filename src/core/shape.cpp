@@ -1,14 +1,8 @@
 ﻿#include "infer/core/shape.h"
 #include <format>
+#include <iostream>
 
 using namespace std;
-
-infer::Shape::Shape() {
-    this->_dim[0] = 0;
-    this->_dim[1] = 0;
-    this->_dim[2] = 0;
-    this->_dim[3] = 0;
-}
 
 infer::Shape::Shape(const std::array<int64_t, 4> &arr) {
 //    for(int i = 0; i < 4; i++){
@@ -22,20 +16,14 @@ infer::Shape::Shape(const std::array<int64_t, 4> &arr) {
 
 infer::Shape::Shape(const vector<int64_t> &vec) {
     const auto size = vec.size();
-    if(size != 4 && size != 3){
+    if(size > 4){
         // todo 错误处理
         return ;
     }
 
-    this->_dim[0] = 0;
-    int i = 0;
-    if(size == 4){
-        this->_dim[0] = vec[0];
-        i = 1;
+    for(int i = 0; i < size; i++){
+        this->_dim[4 - size + i] = vec[i];
     }
-    this->_dim[1] = vec[i];
-    this->_dim[2] = vec[i + 1];
-    this->_dim[3] = vec[i + 2];
 }
 
 
@@ -48,20 +36,16 @@ infer::Shape::Shape(const infer::Shape &shape) {
 
 string infer::Shape::to_string() const {
     string result = "[";
-    if(this->_dim[0] != 0){
-        result += std::to_string(this->_dim[0]);
-        result.push_back(',');
-    }
 
-    for(int i = 1; i < 4; i++){
+    const auto size = this->ndim();
+    for(auto i = size; i < 4; i++){
         result += std::to_string(this->_dim[i]);
-        char ch;
-        if(i != 3)
-            ch = ',';
-        else
-            ch = ']';
-        result.push_back(ch);
+        if(i != 3){
+            result.push_back(',');
+            result.push_back(' ');
+        }
     }
+    result.push_back(']');
     return result;
 }
 
@@ -91,4 +75,20 @@ int64_t infer::Shape::total() const noexcept {
         result += this->_dim[3 - i];
     }
     return result;
+}
+
+bool infer::Shape::operator==(const infer::Shape &shape) const noexcept {
+    for(int i = 0 ; i < 4; i++){
+        if(shape._dim[i] != this->_dim[i])
+            return false;
+    }
+    return true;
+}
+
+bool infer::Shape::operator!=(const infer::Shape &shape) const noexcept {
+    for(int i = 0 ; i < 4; i++){
+        if(shape._dim[i] == this->_dim[i])
+            return false;
+    }
+    return true;
 }
